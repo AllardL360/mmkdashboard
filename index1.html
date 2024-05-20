@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MMK Login and Sign Up</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="shortcut icon" type="x-icon" href="image/logo mmk.PNG">
+</head>
+<body>
+  <div class="container">                
+    <div class="form-box">
+      <div class="signup-box">
+        <h2>Sign Up</h2>
+        <div class="textbox">
+          <input type="text" placeholder="Username" required>
+        </div>
+        <div class="textbox">
+          <input type="email" placeholder="Email" required>
+        </div>
+        <div class="textbox">
+          <input type="password" placeholder="Password" required>
+        </div>
+        <button class="btn" id="signup-btn">Sign Up</button>
+        <p class="error-msg"></p>
+      </div>
+      <div class="login-box" style="display: none;">
+        <h2>Login</h2>
+        <div class="textbox">
+          <input type="text" placeholder="Username" required>
+        </div>
+        <div class="textbox">
+          <input type="password" placeholder="Password" required>
+        </div>
+        <button class="btn" id="login-btn">Login</button>
+        <p class="error-msg"></p>
+        <p class="new-to-mmk">New to MMK? <a href="#" id="show-signup">Create an account</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div id="role-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <h2>Select Your Role</h2>
+      <button class="role-btn" data-role="admin">Admin</button>
+      <button class="role-btn" data-role="customer">Customer</button>
+      <button class="role-btn" data-role="deliverystaff">Delivery Staff</button>
+      <p class="error-msg"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Dashboard</title>
+  <link rel="stylesheet" href="cust.css">
+  <link rel="shortcut icon" type="x-icon" href="image/logo mmk.PNG">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" 
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="logo"><img src="image/logo mmk.PNG" alt="Logo" /></div>
+      <div class="user-box">
+        <p>Hey User!</p>
+      </div>
+      <h2 class="sidebar-heading">Customer</h2>
+      <nav>
+        <ul>
+            <li><a href="#" id="home"><i class='fas fa-home'></i> Home</a></li>
+            <li><a href="#feedback-section"><i class="fas fa-comment"></i>Customer Feedback</a></li>
+            <li><a href="#" id="logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+
+        </ul>    
+      </nav>
+    </aside>
+    <main class="main-content">
+      <header>
+        <h1>Home</h1>
+      </header>
+      <div class="content-wrapper">
+        <section class="order-section">
+          <h2>Breakfast</h2>
+          <div class="order-cards">
+            <div class="order-card">
+              <h3 class="food-name">Silog</h3>
+              <img src="image/rice-omelet-sausages-with-seasonings-served-bowl-souse-nearby.jpg" alt="Silog">
+              <div class="quantity-control">
+                <button class="minus"><i class="fas fa-minus"></i></button>
+                <span class="quantity">0</span>
+                <button class="plus"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+            <div class="order-card">
+              <h3 class="food-name">Lugaw</h3>
+              <img src="image/15086280444_0160b11df8_c.jpg" alt="Lugaw">
+              <div class="quantity-control">
+                <button class="minus"><i class="fas fa-minus"></i></button>
+                <span class="quantity">0</span>
+                <button class="plus"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+            <div class="order-card">
+              <h3 class="food-name">Torta</h3>
+              <img src="image/filipino-pork-torta-with-chili-maple-sauce-recipe-main-photo.jpg" alt="Torta">
+              <div class="quantity-control">
+                <button class="minus"><i class="fas fa-minus"></i></button>
+                <span class="quantity">0</span>
+                <button class="plus"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+          <h2>Lunch</h2>
+          <div class="order-cards">
+            <div class="order-card">
+              <h3 class="food-name">Adobo</h3>
+              <img src="image/d5341266285b41e3bc49f9b18795adf9.jpg" alt="Adobo">
+              <div class="quantity-control">
+                <button class="minus"><i class="fas fa-minus"></i></button>
+                <span class="quantity">0</span>
+                <button class="plus"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+            <div class="order-card">
+              <h3 class="food-name">Lumpia</h3>
+              <img src="image/Lumpia-3.jpg" alt="Lumpia">
+              <div class="quantity-control">
+                <button class="minus"><i class="fas fa-minus"></i></button>
+                <span class="quantity">0</span>
+                <button class="plus"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+            <div class="order-card">
+              <h3 class="food-name">Barbeque</h3>
+              <img src="image/list-of-filipino-favorite-street-foods.jpg" alt="Barbeque">
+              <div class="quantity-control">
+                <button class="minus"><i class="fas fa-minus"></i></button>
+                <span class="quantity">0</span>
+                <button class="plus"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+          <h2>Dinner</h2>
+          <div class="order-cards">
+            <div class="order-card">
+              <h3 class="food-name">Kare-Kare</h3>
+              <img src="image/ngocvan-205903025952-What-is-kare-kare.jpg" alt="Kare-Kare">
+              <div class="quantity-control">
+                <button class="minus"><i class="fas fa-minus"></i></button>
+                <span class="quantity">0</span>
+                <button class="plus"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+            <div class="order-card">
+              <h3 class="food-name">Palabok</h3>
+              <img src="image/how-to-cook-pancit-palabok-1500x822.jpg" alt="Palabok">
+              <div class="quantity-control">
+                <button class="minus"><i class="fas fa-minus"></i></button>
+                <span class="quantity">0</span>
+                <button class="plus"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+            <div class="order-card">
+              <h3 class="food-name">Kaldereta</h3>
+              <img src="image/Kaldereta-with-Peanut-Butter-Wide.jpg" alt="Kaldereta">
+              <div class="quantity-control">
+                <button class="minus"><i class="fas fa-minus"></i></button>
+                <span class="quantity">0</span>
+                <button class="plus"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+          <button class="next-btn">Next</button>
+        </section>
+      </div>
+      <section class="recommendation-section">
+        <h2>Food Recommendation</h2>
+        <div id="food-recommendation"></div>
+      </section>
+      <div class="calendar-map-section">
+        <div class="calendar">
+          <h2>Schedule</h2>
+          <div class="calendar-nav">
+            <button class="nav-btn" onclick="previousMonth()">&lt;</button>
+            <h3 id="currentMonthYear"></h3>
+            <button class="nav-btn" onclick="nextMonth()">&gt;</button>
+          </div>
+          <div id="calendar"></div>
+        </div>
+        <div class="map">
+          <h2>Order Tracking</h2>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d123964.05590947534!2d120.57777934384904!3d13.846436112925003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bdb0a71631da4d%3A0x45efc96d8f621392!2sCalatagan%2C%20Batangas!5e0!3m2!1sen!2sph!4v1715961453145!5m2!1sen!2sph" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+
+      <style>.feedback-section {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+    }
+    
+    .feedback-message {
+        text-align: left;
+        font-size: 1.2em;
+        color: #000;
+        padding: 15px;
+        border-left: 5px solid #4caf50;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+    
+    .feedback-form {
+        margin-bottom: 20px;
+    }
+    
+    .feedback-form h3 {
+        margin-bottom: 10px;
+        font-size: 1.4em;
+    }
+    
+    .feedback-form .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .feedback-form .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    
+    .feedback-form .form-group input,
+    .feedback-form .form-group textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    .feedback-form .btn-submit {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    .feedback-form .btn-submit:hover {
+        background-color: #45a049;
+    }
+    
+    .feedback-list {
+        margin-top: 20px;
+    }
+    
+    .feedback-list h3 {
+        margin-bottom: 10px;
+        font-size: 1.4em;
+    }
+    
+    .feedback-list ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .feedback-list ul li {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }</style>
+    <div id="feedback-section" class="feedback-section">
+        
+        <div class="feedback-form">
+          <h3>Submit Your Feedback</h3>
+          <form id="feedback-form">
+            <div class="form-group">
+              <label for="feedback-name">Your Name:</label>
+              <input type="text" id="feedback-name" name="feedback-name" required>
+            </div>
+            <div class="form-group">
+              <label for="feedback-message">Your Feedback:</label>
+              <textarea id="feedback-message" name="feedback-message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Submit</button>
+          </form>
+        </div>
+        
+      <script>document.addEventListener('DOMContentLoaded', () => {
+        const feedbackForm = document.getElementById('feedback-form');
+        const feedbackList = document.getElementById('feedback-list');
+    
+        feedbackForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+    
+            const feedbackName = document.getElementById('feedback-name').value;
+            const feedbackMessage = document.getElementById('feedback-message').value;
+    
+            if (feedbackName && feedbackMessage) {
+                const newFeedback = document.createElement('li');
+                newFeedback.innerHTML = `<strong>${feedbackName}:</strong> ${feedbackMessage}`;
+    
+                feedbackList.appendChild(newFeedback);
+    
+                feedbackForm.reset();
+            }
+        });
+    });</script>
+    </main>
+  </div>
+  <script src="cust.js"></script>
+  <!-- Replace 'YOUR_API_KEY' with your actual Google Maps API key -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+</body>
+</html>

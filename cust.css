@@ -1,0 +1,337 @@
+/* Reset and Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    max-width: 100%;
+    height: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+    flex: 0 0 250px;
+    background-color: #34495e;
+    color: #fff;
+    padding: 20px;
+    height: 100%;
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.sidebar .logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar .logo img {
+    width: 80px; /* Make the logo smaller */
+    height: 80px; /* Set a fixed height */
+    border-radius: 50%; /* Make the logo circular */
+    display: block;
+    margin: 0 auto;
+}
+
+.user-box {
+    background-color: #47627e;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.sidebar-heading {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    margin-bottom: 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a i {
+    margin-right: 10px;
+}
+
+nav ul li a .fas {
+    margin-right: 10px;
+}
+
+nav ul li a:hover {
+    background-color: #34495e;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    height: 100%;
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.order-section {
+    margin-bottom: 40px;
+}
+
+.order-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.order-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.order-card {
+    flex: 1 1 calc(32% - 20px);
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    
+}
+
+.order-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.order-card img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quantity-control button {
+    background-color: #34495e;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin: 0 5px;
+    border-radius: 5px;
+}
+
+.quantity-control button:hover {
+    background-color: #34495e;
+}
+
+.quantity-control .quantity {
+    font-size: 1.2rem;
+}
+
+.next-btn {
+    background-color: #34495e;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.next-btn:hover {
+    background-color: #34495e;
+}
+
+.recommendation-section {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.recommendation-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.calendar-map-section {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.calendar {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.calendar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.calendar-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.nav-btn {
+    background-color: #34495e;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.nav-btn:hover {
+    background-color: #34495e;
+}
+
+#currentMonthYear {
+    font-size: 20px;
+    margin: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+td {
+    background-color: #fff;
+}
+
+td:hover {
+    background-color: #f2f2f2;
+}
+
+td:not(:empty) {
+    cursor: pointer;
+}
+
+.map {
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        flex: 1;
+    }
+
+    .main-content {
+        flex: 1;
+    }
+
+    .order-card {
+        flex: 1 1 calc(49% - 20px);
+    }
+
+    .calendar-map-section {
+        flex-direction: column;
+    }
+
+    .calendar, .map {
+        flex: 1;
+        margin-right: 0;
+    }
+}
+
+.recommendation-section {
+    margin-top: 20px;
+}
+
+.food-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.food-item img {
+    width: 200px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 5px;
+}
+
+.food-details h3 {
+    margin-top: 0;
+}
+
+.food-details p {
+    margin-bottom: 0;
+}
+
+/* Circular Logo */
+.logo img {
+    width: 80px; /* Make the logo smaller */
+    height: 80px; /* Set a fixed height */
+    border-radius: 50%; /* Make the logo circular */
+    display: block;
+    margin: 0 auto 20px; /* Center the logo and add margin below */
+}
+
+/* Sidebar Icon Styles */
+nav ul li a i {
+    margin-right: 10px;
+}
+
+nav ul li a .fas {
+    margin-right: 10px;
+}

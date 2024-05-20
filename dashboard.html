@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Include Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="shortcut icon" type="x-icon" href="image/logo mmk.PNG">
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .sidebar {
+            width: 200px; /* Initial width */
+            background: #34495e;
+            color: #ffffff;
+            padding: 20px;
+            height: 130vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sidebar .logo img {
+            width: 80px; /* Adjust the width as needed */
+            height: 80px; /* Adjust the height as needed */
+            border-radius: 50%; /* Make it circular */
+            margin-bottom: 20px;
+        }
+
+        .sidebar h2 {
+            color: #ffffff;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar a {
+            color: #bdc3c7;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            margin: 10px 0;
+            transition: background 0.3s;
+            width: 100%;
+            text-align: center;
+            
+        }
+
+        .sidebar a:hover {
+            background: #34495e;
+        }
+
+        .sidebar a i {
+            margin-right: 10px; /* Adjust space between icon and text */
+        }
+
+        .main {
+            flex: 1;
+            background: #ecf0f1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            
+            
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: flex-end;
+            background: #34495e;
+            padding: 10px 20px;
+            color: white;
+            align-items: center;
+        }
+
+        .navbar .nav-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .nav-right a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .content {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap; /* Ensure content wraps to the next line if necessary */
+        }
+
+        .chart-container {
+            width: 50%;
+            min-width: 200px; /* Adjust minimum width as needed */
+            flex-grow: 1;
+            overflow: hidden;
+        }
+
+        canvas {
+            width: 100% !important;
+            height: auto !important;
+        }
+
+        .card {
+            background: #34495e;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            color: #ecf0f1;
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        .card p {
+            margin-bottom: 0;
+        }
+
+        .card img {
+            width: 100px; /* Adjust the width as needed */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .card .number {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background-color: #34495e;
+            border-radius: 50%;
+            padding: 5px;
+            font-weight: bold;
+        }
+
+        .info-card {
+            background: #34495e; /* Match the background with card */
+            color: rgb(255, 255, 255); /* Match the text color with card */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            flex: 1;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .info-card .number {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            padding: 5px;
+            font-weight: bold;
+        }
+
+        .order-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .order-table th,
+        .order-table td {
+            border: 1px solid #34495e;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .order-table th {
+            background-color: #34495e;
+            color: #ffffff;
+        }
+
+        .order-table tbody tr:nth-child(even) {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .order-table tbody tr:hover {
+            background-color: #34495e;
+            color: #ffffff;
+        }
+
+        /* Media query for responsiveness */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100px; /* Adjust the width for smaller screens */
+                padding: 10px;
+            }
+
+            .sidebar .logo img {
+                width: 60px; /* Adjustthe logo size */
+                height: 60px; /* Adjust the height for smaller screens */
+            }
+
+            .sidebar h2 {
+                font-size: 16px; /* Adjust the font size */
+                margin-bottom: 10px;
+            }
+
+            .sidebar a {
+                padding: 8px;
+                margin: 8px 0;
+            }
+
+            .sidebar a i {
+                margin-right: 8px; /* Adjust space between icon and text */
+            }
+
+            .navbar .nav-right a {
+                margin-left: 10px;
+            }
+
+            .content {
+                flex-direction: column; /* Stack content vertically on smaller screens */
+                gap: 10px;
+            }
+
+            .chart-container {
+                width: 100%; /* Take full width on smaller screens */
+                min-width: unset;
+            }
+            @media (max-width: 768px) {
+    .sidebar {
+        width: 100%; /* Adjust width for smaller screens */
+    }
+}
+        }
+    </style>
+
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <img src="image/logo mmk.PNG" alt="MMK Logo">
+        </div>
+        <h2>Admin</h2>
+        <a href="#"><i class="fas fa-chart-line"></i> Dashboard</a>
+        <a href="#"><i class="fas fa-clipboard-list"></i> Orders</a>
+        <a href="#"><i class="fas fa-file-alt"></i> Reports</a>
+    </div>
+    <div class="main">
+        <div class="navbar">
+            <div class="nav-right">
+                <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                <a href="index1.html"><i class="fas fa-sign-out-alt"></i> Logout</a> <!-- Link to login page -->
+            </div>
+        </div>
+        <div class="content">
+            <div class="chart-container">
+                <canvas id="salesChart"></canvas>
+            </div>
+            <div class="card">
+                <i class="fas fa-shopping-cart" style="position: absolute; top: 5px; left: 5px; color: #ffffff;"></i>
+                <h3>Total Orders</h3>
+                <p>15</p>
+            </div>
+        </div>
+        <div class="content">
+            <div class="card">
+                <div class="number">➀ Ham and Cheese</div>
+                <img src="image/Cool wallpaper.jpg" alt="Order 1">
+                <p>Customer Order 1</p>
+            </div>
+            <div class="card">
+                <div class="number">➁ Adobo</div>
+                <img src="image/delicious-goulash-ready-dinner.jpg" alt="Order 2">
+                <p>Customer Order 2</p>
+            </div>
+            <div class="card">
+                <div class="number">➂ Gulay</div>
+                <img src="image/gulay.jpg" alt="Order 3">
+                <p>Customer Order 3</p>
+            </div>
+        </div>
+        <table class="order-table">
+            <thead>
+                <tr>
+                    <th>Order No.</th>
+                    <th>Item Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total Price</th>
+                </tr>
+            </thead>
+                       <tbody>
+                <!-- Dummy data for demonstration -->
+                <tr>
+                    <td>1</td>
+                    <td>Ham and Cheese</td>
+                    <td>Php 35.00</td>
+                    <td>2</td>
+                    <td>Php 70.00</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Adobo</td>
+                    <td>Php 40.00</td>
+                    <td>1</td>
+                    <td>Php 40.00</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Gulay</td>
+                    <td>Php 25.00</td>
+                    <td>2</td>
+                    <td>Php 50.00</td>
+                </tr>
+                
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+        <div class="content">
+            <div class="info-card">
+                
+                <h3>Delivered Information</h3>
+                <p>90% of orders delivered on time</p>
+            </div>
+            <div class="info-card">
+                
+                <h3>Satisfaction of Customer</h3>
+                <p>Customer satisfaction rate: 95%</p>
+            </div>
+            <div class="info-card">
+                
+                <h3>Food Recommendation</h3>
+                <p>Popular food items: Ham and Cheese, Adobo, Gulay</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sales data for the chart (sample data)
+        const salesData = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+            datasets: [{
+                label: 'Sales Overview',
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: '#34495e', // Change the border color here
+                borderWidth: 1,
+                data: [1000, 1500, 1200, 1700, 1400, 1800] // Example sales data
+            }]
+        };
+    
+        // Get the canvas element
+        const ctx = document.getElementById('salesChart').getContext('2d');
+    
+        // Create the chart
+        const salesChart = new Chart(ctx, {
+            type: 'line',
+            data: salesData,
+            options: {
+                maintainAspectRatio: false
+            }
+        });
+        <!-- Add this script to the dashboard pages -->
+
+  
+
+
+    </script>
+    
+</body>
+</html>
+

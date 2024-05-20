@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="deliverystaff.css">
+  <link rel="shortcut icon" type="x-icon" href="image/logo mmk.PNG">
+  <title>Delivery Dashboard</title>    
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="image/logo mmk.PNG" alt="Logo">
+    </div>
+    <div class="navbar-content">
+      <a href="index1.html" class="logout">
+        <i class="fas fa-sign-out-alt"></i>
+        Logout
+      </a>
+    </div>
+  </nav>
+  
+  <div class="dashboard">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <!-- Optional header content here -->
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="#welcome-section"><i class="fas fa-user-tie"></i>Delivery Staff</a></li>
+        <li><a href="#order-location"><i class="fas fa-map-marker-alt"></i>Customer Location</a></li>
+        <li><a href="#feedback-section"><i class="fas fa-comment"></i>SMS Feedback</a></li>
+        <li><a href="#"><i class="fas fa-chart-line"></i>Reports</a></li>
+      </ul>
+    </aside>
+
+    <main class="content">
+      <div id="welcome-section" class="welcome-section">
+        <h2>Welcome Delivery Staff</h2><br>
+        <div class="form-group">
+          <label for="staff-name">Name:</label>
+          <input type="text" id="staff-name" name="staff-name" value="Unknown Name" readonly>
+        </div>
+        <div class="form-group">
+          <label for="staff-age">Age:</label>
+          <input type="text" id="staff-age" name="staff-age" value="30" readonly>
+        </div>
+      </div>
+
+      <div id="customer-info" class="customer-order-info">
+        <div class="customer-info info-form">
+          <h2>Customer Info</h2><br>
+          <form id="customer-info-form">
+            <div class="form-group">
+              <label for="customer-name">Name:</label>
+              <input type="text" id="customer-name" name="customer-name" value="Unknown Name" readonly>
+            </div>
+            <div class="form-group">
+              <label for="customer-address">Address:</label>
+              <input type="text" id="customer-address" name="customer-address" value="Talisay,Calatagan Batangas Philippines" readonly>
+            </div>
+            <div class="form-group">
+              <label for="customer-orders">Orders:</label>
+              <input type="text" id="customer-orders" name="customer-orders" value="2x Barbeque, 1x Kare-Kare" readonly>
+            </div>
+            <div class="form-group">
+              <label for="customer-mop">MOP:</label>
+              <input type="text" id="customer-mop" name="customer-mop" value="G-Cash" readonly>
+            </div>
+            <div class="form-group">
+              <label for="customer-total">Total:</label>
+              <input type="text" id="customer-total" name="customer-total" value="Php 300.00" readonly>
+            </div>
+          </form>
+        </div>
+
+        <div id="order-location" class="order-location">
+          <h2>Order Location</h2>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3872.9454061133274!2d120.62633067527214!3d13.902211393793053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bdbbe5ca6b07c3%3A0x3100a83bb6ed4836!2sTalisay%20Bridge%2C%20Calatagan%2C%20Batangas!5e0!3m2!1sen!2sph!4v1716098690631!5m2!1sen!2sph" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <p>Delivered!</p>
+        </div>
+      </div>
+
+      <div id="feedback-section" class="feedback-list">
+        <h2>Feedback</h2>
+        <div class="feedback-card">
+          <p>The order has been delivered!</p>
+        </div>
+        <ul id="feedback-list"></ul>
+      </div>
+    
+
+      <div class="total-delivered">
+        <br><h2>Total Customers Orders Delivered</h2><br>
+        <div class="total-info">
+          <p>Total Orders Delivered: <span id="total-orders-delivered">3</span></p>
+          <div class="form-group">
+            <label for="proof">Upload Proof of Delivery:</label>
+            <input type="file" id="proof" name="proof">
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="deliverystaff.js"></script>
+</body>
+</html>
